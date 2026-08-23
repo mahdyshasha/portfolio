@@ -3,202 +3,353 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mohamad Mahdi Shasha — Full-Stack Engineer</title>
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('theme');
+        var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+  <title>Mohamad Mahdi Shasha — Full-Stack Software Engineer</title>
+  <meta name="description" content="Mohamad Mahdi Shasha — Full-Stack Software Engineer specializing in the MEAN stack, React.js, secure REST APIs, and system architecture.">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="fontawesome-free-6.4.2-web/css/all.min.css">
   <link rel="stylesheet" href="portfolio.css">
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="bg-decor" aria-hidden="true">
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
+
   <header class="site-header" id="top">
     <div class="container header-inner">
-      <div class="brand">
+      <a href="#top" class="brand">
         <div class="avatar" aria-hidden="true">MS</div>
         <div>
           <h1>Mohamad Mahdi Shasha</h1>
-          <p class="muted">Full-Stack Software Engineer • IT/Engineering Student — Syria</p>
+          <p class="muted micro">Full-Stack Software Engineer · Syria</p>
         </div>
-      </div>
+      </a>
       <nav class="nav" aria-label="Primary">
-        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list">Menu</button>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-list" aria-label="Toggle menu">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
         <ul id="nav-list" class="nav-list">
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#summary">Summary</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#hero" data-nav>Home</a></li>
+          <li><a href="#summary" data-nav>About</a></li>
+          <li><a href="#projects" data-nav>Projects</a></li>
+          <li><a href="#skills" data-nav>Skills</a></li>
+          <li><a href="#contact" data-nav>Contact</a></li>
         </ul>
+        <a class="btn primary btn-sm nav-cta" href="#contact">Hire Me</a>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to light theme" aria-pressed="false">
+          <i class="fa-solid fa-moon theme-icon-dark" aria-hidden="true"></i>
+          <i class="fa-solid fa-sun theme-icon-light" aria-hidden="true"></i>
+        </button>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
+    <!-- ===================== HERO ===================== -->
     <section id="hero" class="hero">
       <div class="container hero-grid">
-        <div class="hero-copy">
-          <h2>Engineering resilient, scalable web systems.</h2>
-          <p class="lead">I architect and build production-grade full-stack applications with a focus on robust backends, interactive frontends, and secure deployment workflows.</p>
+        <div class="hero-copy" data-reveal>
+          <p class="eyebrow"><span class="status-dot"></span> Available for local &amp; international opportunities</p>
+          <h2>Engineering resilient, <span class="text-gradient">scalable</span> full-stack systems.</h2>
+          <p class="lead">I'm a Full-Stack Software Engineer and IT/Engineering university student architecting production-grade web applications — from secure REST APIs and role-based auth to responsive, data-driven frontends.</p>
           <div class="hero-cta">
-            <a class="btn primary" href="#projects">View Projects</a>
+            <a class="btn primary" href="#projects">View Projects <i class="fa-solid fa-arrow-right"></i></a>
             <a class="btn ghost" href="#contact">Get in touch</a>
           </div>
+          <div class="hero-stack" aria-label="Core technologies">
+            <span><i class="fa-brands fa-react"></i> React.js</span>
+            <span><i class="fa-brands fa-angular"></i> Angular</span>
+            <span><i class="fa-brands fa-node-js"></i> Node.js</span>
+            <span><i class="fa-solid fa-database"></i> MongoDB / SQL</span>
+            <span><i class="fa-brands fa-python"></i> Python</span>
+          </div>
         </div>
-        <div class="hero-card">
+        <div class="hero-card" data-reveal>
           <div class="card-inner">
-            <h3>Open to local & international opportunities</h3>
-            <p class="muted small">Available for freelance, remote, and full-time roles. Strong emphasis on clean architecture and measurable outcomes.</p>
+            <div class="hero-card-top">
+              <span class="pill pill-accent"><i class="fa-solid fa-graduation-cap"></i> IT / Engineering Student</span>
+            </div>
+            <h3>Open to freelance, remote &amp; full-time roles</h3>
+            <p class="muted small">Strong emphasis on clean architecture, secure systems design, and measurable engineering outcomes.</p>
             <ul class="meta-list">
-              <li><strong>Location:</strong> Syria</li>
-              <li><strong>Role:</strong> Full-Stack Engineer</li>
-              <li><strong>Education:</strong> IT / Engineering Student</li>
+              <li><i class="fa-solid fa-location-dot"></i> <span><strong>Location</strong> Syria — open to remote &amp; international work</span></li>
+              <li><i class="fa-solid fa-layer-group"></i> <span><strong>Focus</strong> Full-Stack Architecture &amp; Secure APIs</span></li>
+              <li><i class="fa-solid fa-code-branch"></i> <span><strong>Workflow</strong> Git/GitHub, CI/CD, System Modeling</span></li>
             </ul>
           </div>
         </div>
       </div>
+      <a href="#summary" class="scroll-nudge" aria-label="Scroll to About section">
+        <span>Scroll</span>
+        <i class="fa-solid fa-chevron-down"></i>
+      </a>
     </section>
 
+    <!-- ===================== PROFESSIONAL SUMMARY ===================== -->
     <section id="summary" class="section">
       <div class="container">
+        <p class="section-tag">About Me</p>
         <h2>Professional Summary</h2>
-        <div class="summary-grid">
-          <article class="summary-card">
-            <h3>Profile</h3>
-            <p>Mohamad Mahdi Shasha is a passionate Full-Stack Software Engineer and IT/Engineering University Student based in Syria. With a pragmatic, engineering-led approach, Mohamad targets both local and international markets and brings an academic foundation together with real-world, production experience.</p>
+        <p class="section-lead">A pragmatic, engineering-led profile spanning full-stack product development, computer science fundamentals, and disciplined software delivery workflows.</p>
+
+        <article class="profile-card" data-reveal>
+          <p>Mohamad Mahdi Shasha is a passionate <strong>Full-Stack Software Engineer</strong> and <strong>IT/Engineering University Student</strong> based in Syria, building production-grade web applications while targeting both local and international markets. He combines a solid academic foundation in computer science and software engineering with hands-on, real-world experience shipping secure, scalable systems — from relational database schemas to interactive, state-driven user interfaces.</p>
+        </article>
+
+        <div class="expertise-grid">
+          <article class="expertise-card" data-reveal>
+            <div class="expertise-icon"><i class="fa-solid fa-layer-group"></i></div>
+            <h3>Full-Stack Development</h3>
+            <p>Master of the <strong>MEAN stack</strong> (MongoDB, Express, Angular, Node.js) with extensive production-level experience in <strong>React.js</strong> and relational <strong>SQL</strong> databases. Proven ability to architect secure, scalable RESTful APIs, design custom middlewares — including role-based authentication and authorization — and manage complex global state using Context API and modern state-management patterns.</p>
           </article>
 
-          <article class="summary-card">
-            <h3>Technical Expertise</h3>
-            <h4>Full-Stack Development</h4>
-            <p>Master of the MEAN stack (MongoDB, Express, Angular, Node.js) and highly experienced with React.js and relational SQL databases. Proven ability to design and implement secure, scalable RESTful APIs, craft custom middleware (including role-based authentication and authorization), and manage complex client state using Context API and global state patterns.</p>
+          <article class="expertise-card" data-reveal>
+            <div class="expertise-icon"><i class="fa-solid fa-diagram-project"></i></div>
+            <h3>Computer Science &amp; Architecture Fundamentals</h3>
+            <p>Strong academic and practical foundation in <strong>software engineering architecture</strong>, computer networking (Spanning Tree Protocol, subnetting), core <strong>algorithms</strong> (search algorithms, Apriori association rule mining), and <strong>statistical data analysis</strong> for deriving meaningful insight from system and application data.</p>
+          </article>
 
-            <h4>Computer Science & Architecture</h4>
-            <p>Strong academic and practical foundation in software engineering architecture, networking (including STP and subnetting), algorithmic problem solving (search algorithms, Apriori association techniques), and statistical data analysis to derive meaningful insights from system telemetry.</p>
-
-            <h4>Systems & Workflows</h4>
-            <p>Expert in Git/GitHub source control workflows, deployment automation (including GitHub Pages and CI/CD), and continuous software system modeling with Use Case and Sequence diagrams to communicate complex designs to stakeholders and engineering teams.</p>
+          <article class="expertise-card" data-reveal>
+            <div class="expertise-icon"><i class="fa-solid fa-code-branch"></i></div>
+            <h3>Systems &amp; Workflows</h3>
+            <p>Expert in <strong>Git/GitHub</strong> source-control workflows and collaborative development, automated <strong>deployment pipelines</strong> (including GitHub Pages), and continuous <strong>software system modeling</strong> — Use Case and Sequence diagrams — to communicate architecture clearly across engineering and stakeholder teams.</p>
           </article>
         </div>
       </div>
     </section>
 
+    <!-- ===================== PROJECTS ===================== -->
     <section id="projects" class="section dark-section">
       <div class="container">
-        <h2>Selected Projects</h2>
-        <p class="muted">Deep-dive showcases highlighting architecture, tech stack, and production-ready features.</p>
+        <p class="section-tag">Portfolio</p>
+        <h2>Core Projects</h2>
+        <p class="section-lead">Deep-dive showcases highlighting system architecture, technology stack, and production-ready features.</p>
 
         <div class="projects-grid">
-          <article class="project">
+
+          <!-- Project 1: Treco E-Commerce Platform -->
+          <article class="project" data-reveal>
             <div class="project-media">
-              <img src="img\لقطة شاشة 2026-06-12 210641.png" alt="Treco Full-Stack E-Commerce Interface Dashboard">
+              <img src="img\image.png" alt="Treco Full-Stack E-Commerce Interface Dashboard" loading="lazy">
+              <span class="media-caption">Drop <code>treco-showcase.png</code> in the project root</span>
             </div>
             <div class="project-body">
+              <span class="project-number">01</span>
               <h3>Treco E-Commerce Platform</h3>
-              <p class="muted small">A robust Full-Stack e-commerce web application with advanced role-based security and dynamic cart lifecycle management.</p>
-              <p>Description: A Full-Stack e-commerce application featuring role-based secure token authentication, dynamic product catalog sorting, and live cart lifecycle processing.</p>
-              <p><strong>Tech Stack:</strong> React.js, Context API, Node.js, Express.js, SQL Database, Custom Middlewares.</p>
-              <p><strong>Key Highlights:</strong> Sliding Cart Drawer with React Context API, protected routes via auth/admin middlewares, relational SQL schemas for inventory tracking, and an interactive Admin Suite.</p>
+              <p>A robust Full-Stack e-commerce web application featuring role-based secure token authentication, dynamic product catalog sorting, and live cart lifecycle processing.</p>
+              <div class="tag-list">
+                <span class="tag">React.js</span>
+                <span class="tag">Context API</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">Express.js</span>
+                <span class="tag">SQL Database</span>
+                <span class="tag">Custom Middlewares</span>
+              </div>
+              <ul class="highlight-list">
+                <li>Sliding Cart Drawer built with React Context API for real-time cart lifecycle management.</li>
+                <li>Protected routes secured via custom <code>auth</code> and <code>admin</code> middlewares.</li>
+                <li>Relational SQL schemas designed for accurate inventory tracking.</li>
+                <li>Interactive Admin Suite for catalog, order, and user management.</li>
+              </ul>
             </div>
           </article>
 
-          <article class="project">
+          <!-- Project 2: Medical & Hospital Management System -->
+          <article class="project" data-reveal>
             <div class="project-media">
-              <img src="img\لقطة شاشة 2026-06-09 001340.png" alt="Medical and Hospital Management Dashboard System">
+              <img src="img\لقطة شاشة 2026-06-09 001340.png" alt="Medical and Hospital Management Dashboard System" loading="lazy">
+              <span class="media-caption">Drop <code>medical-system.png</code> in the project root</span>
             </div>
             <div class="project-body">
-              <h3>Medical & Hospital Management System (Graduation Project)</h3>
-              <p class="muted small">A comprehensive graduation thesis project delivering a full medical ecosystem for EHR and logistics.</p>
-              <p>Description: A massive medical ecosystem managing patient electronic health records, staff dashboards, and hospital logistics.</p>
-              <p><strong>Tech Stack:</strong> MongoDB, Express, Angular, Node.js (Full MEAN Stack).</p>
-              <p><strong>Key Highlights:</strong> Secure QR-code verification for patient records, responsive multi-role dashboards (Doctors, Admins, Nurses), complex database schema design, and complete academic system modeling.</p>
+              <span class="project-number">02</span>
+              <h3>Medical &amp; Hospital Management System</h3>
+              <p class="project-subtitle">Graduation Project</p>
+              <p>My comprehensive final-year graduation thesis project — a massive medical ecosystem managing patient electronic health records, staff dashboards, and hospital logistics.</p>
+              <div class="tag-list">
+                <span class="tag">MongoDB</span>
+                <span class="tag">Express</span>
+                <span class="tag">Angular</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">Full MEAN Stack</span>
+              </div>
+              <ul class="highlight-list">
+                <li>Secure QR-code verification for authenticated patient record access.</li>
+                <li>Responsive multi-role dashboards for Doctors, Admins, and Nurses.</li>
+                <li>Complex relational database schema design for patient EHR data.</li>
+                <li>Complete academic system modeling with Use Case and Sequence diagrams.</li>
+              </ul>
             </div>
           </article>
 
-          <article class="project">
+          <!-- Project 3: Supermarket E-Commerce Application -->
+          <article class="project" data-reveal>
             <div class="project-media">
-              <img src="img\لقطة شاشة 2026-06-12 210211.png" alt="Supermarket E-commerce Responsive Web Application">
+              <img src="img\لقطة شاشة 2026-06-12 210211.png" alt="Supermarket E-commerce Responsive Web Application" loading="lazy">
+              <span class="media-caption">Drop <code>supermarket-app.png</code> in the project root</span>
             </div>
             <div class="project-body">
+              <span class="project-number">03</span>
               <h3>Supermarket E-Commerce Application</h3>
-              <p class="muted small">Highly responsive local marketplace web application built and deployed publicly.</p>
-              <p>Description: A highly responsive local marketplace web application built for seamless retail shopping, deployed and published publicly.</p>
-              <p><strong>Tech Stack:</strong> Angular, HTML5, CSS3, angular-cli-ghpages deployment.</p>
-              <p><strong>Key Highlights:</strong> Optimized frontend performance, local market gap optimization, and automated CI/CD pipeline hosting on GitHub Pages.</p>
+              <p>A highly responsive local marketplace web application built for seamless retail shopping, deployed and published publicly for real-world use.</p>
+              <div class="tag-list">
+                <span class="tag">Angular</span>
+                <span class="tag">HTML5</span>
+                <span class="tag">CSS3</span>
+                <span class="tag">angular-cli-ghpages</span>
+              </div>
+              <ul class="highlight-list">
+                <li>Optimized frontend performance for fast, fluid retail browsing.</li>
+                <li>Designed to fill a genuine local market gap for online grocery shopping.</li>
+                <li>Automated CI/CD pipeline hosting live on GitHub Pages.</li>
+              </ul>
             </div>
           </article>
 
-    <article class="project">
+          <!-- Project 4: AI-Powered Object Detection System -->
+          <article class="project" data-reveal>
             <div class="project-media">
-              <img src="img\لقطة شاشة 2026-06-09 001340.png" alt="Full-Stack Restaurant Management and Booking System Dashboard">
+              <img src="img\Blog_What-is-AI-Image-Recognition-1.jpg" alt="AI-Powered Computer Vision Object Detection System Framework" loading="lazy">
+              <span class="media-caption">Drop <code>object-detection.png</code> in the project root</span>
             </div>
             <div class="project-body">
-              <h3>Smart Restaurant Management & Booking System</h3>
-              <p class="muted small">A comprehensive Full-Stack platform for automated table reservations, live order workflows, and staff analytics.</p>
-              <p>Description: A robust commercial solution engineered to streamline restaurant operations, featuring interactive live table allocation, real-time consumer reservations, and full financial telemetry.</p>
-              <p><strong>Tech Stack:</strong> Node.js, Express.js, React, MongoDB / SQL, Custom Authorization Middleware.</p>
-              <p><strong>Key Highlights:</strong> Built an intuitive dynamic table layout engine, implemented automated conflict-free reservation pipelines, secure multi-role dashboard access (Admins, Kitchen Staff, Waiters), and structured telemetry tracking for daily sales analytics.</p>
+              <span class="project-number">04</span>
+              <h3>AI-Powered Object Detection System</h3>
+              <p>An intelligent Computer Vision application built to execute real-time object detection, identification, and tracking over live camera streams and custom video/image datasets.</p>
+              <div class="tag-list">
+                <span class="tag">Python</span>
+                <span class="tag">OpenCV</span>
+                <span class="tag">NumPy</span>
+                <span class="tag">Deep Learning</span>
+              </div>
+              <ul class="highlight-list">
+                <li>High-accuracy feature extraction with real-time bounding box rendering.</li>
+                <li>Real-time image processing pipeline execution over live camera streams.</li>
+                <li>Deployment-ready dependency tracking via automated package configuration.</li>
+              </ul>
             </div>
           </article>
-          <article class="project">
-            <div class="project-media">
-              <img src="img\لقطة شاشة 2026-06-12 211745.png" alt="Dynamic CRUDs Data Management System Interface">
-            </div>
-            <div class="project-body">
-              <h3>Dynamic Inventory & CRUD Management System</h3>
-              <p class="muted small">A high-performance data management dashboard featuring atomic CRUD operations, real-time calculation engines, and instant search sorting.</p>
-              <p>Description: A lightweight, optimized management system engineered to handle intensive data schemas with instant UI reflection, strict validation pipelines, and persistent state auditing.</p>
-              <p><strong>Tech Stack:</strong> JavaScript (ES6+), HTML5, CSS3, LocalStorage / API Integration.</p>
-              <p><strong>Key Highlights:</strong> Programmed a dynamic price-to-tax calculation engine, integrated client-side continuous data persistence, engineered real-time multi-column search filtering, and delivered a fully responsive UI utilizing clean asynchronous DOM updates.</p>
-            </div>
-          </article>
+
+        </div>
+
+        <!-- Additional projects (secondary showcase, existing screenshots preserved) -->
+        <div class="more-projects">
+          <h3 class="more-projects-title"><i class="fa-solid fa-boxes-stacked"></i> Additional Projects</h3>
+          <div class="more-projects-grid">
+            <article class="project-compact" data-reveal>
+              <div class="project-compact-media">
+                <img src="img\لقطة شاشة 2026-06-12 211325.png" alt="Full-Stack Restaurant Management and Booking System Dashboard" loading="lazy">
+              </div>
+              <div class="project-compact-body">
+                <h4>Smart Restaurant Management &amp; Booking System</h4>
+                <p>A commercial platform streamlining restaurant operations with dynamic table allocation, real-time reservations, and full financial telemetry.</p>
+                <div class="tag-list">
+                  <span class="tag">Node.js</span>
+                  <span class="tag">React</span>
+                  <span class="tag">MongoDB / SQL</span>
+                </div>
+              </div>
+            </article>
+            <article class="project-compact" data-reveal>
+              <div class="project-compact-media">
+                <img src="img\لقطة شاشة 2026-06-12 211745.png" alt="Dynamic CRUDs Data Management System Interface" loading="lazy">
+              </div>
+              <div class="project-compact-body">
+                <h4>Dynamic Inventory &amp; CRUD Management System</h4>
+                <p>A high-performance data dashboard with atomic CRUD operations, a real-time tax calculation engine, and instant multi-column search.</p>
+                <div class="tag-list">
+                  <span class="tag">JavaScript ES6+</span>
+                  <span class="tag">HTML5 / CSS3</span>
+                  <span class="tag">LocalStorage / API</span>
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- ===================== SKILLS ===================== -->
     <section id="skills" class="section">
       <div class="container">
+        <p class="section-tag">Capabilities</p>
         <h2>Technical Skills</h2>
+        <p class="section-lead">A full-stack toolkit spanning interactive frontends, secure backend architecture, applied data science, and delivery workflows.</p>
+
         <div class="skills-grid">
-          <div class="skill-card">
+          <div class="skill-card" data-reveal>
+            <div class="skill-icon"><i class="fa-solid fa-display"></i></div>
             <h4>Frontend</h4>
-            <p>React, Angular, HTML5, CSS3, TypeScript, Responsive Design, Performance Optimization</p>
+            <p>React.js, Angular, HTML5, CSS3, TypeScript, Responsive Design, Performance Optimization</p>
           </div>
-          <div class="skill-card">
+          <div class="skill-card" data-reveal>
+            <div class="skill-icon"><i class="fa-solid fa-server"></i></div>
             <h4>Backend</h4>
-            <p>Node.js, Express, RESTful API design, SQL & NoSQL (Postgres, MySQL, MongoDB), Authentication & Middleware</p>
+            <p>Node.js, Express.js, RESTful API Design, SQL &amp; NoSQL (MySQL, PostgreSQL, MongoDB), Auth &amp; Custom Middleware</p>
           </div>
-          <div class="skill-card">
-            <h4>Data & ML</h4>
-            <p>Python, OpenCV, NumPy, Deep Learning frameworks, Data analysis, feature extraction</p>
+          <div class="skill-card" data-reveal>
+            <div class="skill-icon"><i class="fa-solid fa-brain"></i></div>
+            <h4>Data &amp; Machine Learning</h4>
+            <p>Python, OpenCV, NumPy, Deep Learning Frameworks, Statistical Data Analysis, Feature Extraction</p>
           </div>
-          <div class="skill-card">
-            <h4>DevOps & Tools</h4>
-            <p>Git/GitHub, CI/CD, GitHub Pages, deployment workflows, Docker basics, system modeling</p>
+          <div class="skill-card" data-reveal>
+            <div class="skill-icon"><i class="fa-solid fa-gears"></i></div>
+            <h4>DevOps &amp; Tools</h4>
+            <p>Git/GitHub, CI/CD, GitHub Pages Deployment, Docker Basics, Use Case &amp; Sequence System Modeling</p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ===================== CONTACT ===================== -->
     <section id="contact" class="section dark-section">
       <div class="container contact-grid">
-        <div>
+        <div data-reveal>
+          <p class="section-tag">Get In Touch</p>
           <h2>Contact</h2>
-          <p class="muted">Interested in collaborating or hiring? Reach out and I'll respond promptly.</p>
+          <p class="section-lead">Interested in collaborating or hiring? Reach out and I'll respond promptly.</p>
           <ul class="contact-list">
-            <li><strong>Email:</strong> <a href="mailto:you@example.com">you@example.com</a></li>
-            <li><strong>GitHub:</strong> <a href="#">github.com/yourprofile</a></li>
-            <li><strong>Location:</strong> Syria</li>
+            <li><i class="fa-solid fa-envelope"></i> <a href="mailto:mohamadshasha45@gmail.com">mohamadshasha45@gmail.com</a></li>
+            <li><i class="fa-brands fa-github"></i> <a href="https://github.com/mahdyshasha" target="_blank" rel="noopener">github.com/mahdyshasha</a></li>
+            <li><i class="fa-brands fa-linkedin"></i> <a href="https://linkedin.com/in/mohamad-shasha" target="_blank" rel="noopener">linkedin.com/in/mohamad-shasha</a></li>
+            <li><i class="fa-solid fa-location-dot"></i> <span>Syria — open to remote &amp; international work</span></li>
           </ul>
         </div>
-        <form class="contact-form" onsubmit="return false;">
+        <form id="contact-form" class="contact-form" data-reveal novalidate>
           <label for="name">Name</label>
-          <input id="name" type="text" placeholder="Your full name" required>
+          <input id="name" name="user_name" type="text" placeholder="Your full name" required>
           <label for="email">Email</label>
-          <input id="email" type="email" placeholder="you@example.com" required>
+          <input id="email" name="user_email" type="email" placeholder="you@example.com" required>
           <label for="message">Message</label>
-          <textarea id="message" rows="4" placeholder="Tell me about your project"></textarea>
+          <textarea id="message" name="message" rows="4" placeholder="Tell me about your project" required></textarea>
           <div class="form-actions">
-            <button class="btn primary" type="submit">Send Message</button>
+            <button class="btn primary" type="submit">
+              <span class="btn-label">Send Message</span>
+              <i class="fa-solid fa-paper-plane btn-icon"></i>
+              <span class="btn-spinner" aria-hidden="true"></span>
+            </button>
             <button class="btn ghost" type="reset">Reset</button>
           </div>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
     </section>
@@ -206,10 +357,12 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>&copy; <span id="year"></span> Mohamad Mahdi Shasha — Built with clean architecture and privacy-first practices.</p>
-      <p class="muted small">Design: Developer-centric dark UI • Smooth scrolling • Accessible components</p>
+      <p>&copy; <span id="year"></span> Mohamad Mahdi Shasha. Built with clean architecture and privacy-first practices.</p>
+      <p class="muted small">Developer-centric dark UI · Smooth scrolling · Accessible components</p>
     </div>
   </footer>
+
+  <a href="#top" class="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></a>
 
 <script src="portfolio.js"></script>
 </body>
